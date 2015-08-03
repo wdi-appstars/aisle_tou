@@ -13,11 +13,12 @@
 
     <link rel="stylesheet" href="/styles/normalize.css"> <!-- Normalize.css makes browsers render all elements more consistently and in line with modern standards http://goo.gl/2trj5P-->
 
-    <link rel="stylesheet" href="/styles/skeleton.css"> <!-- Include Skeleton.css for grid responsive Css layout -->
+    <link rel="stylesheet" href="/styles/skeleton.css"> <!-- Include Skeleton.css for grid responsive Css layout
 
     <link rel="stylesheet" href="/styles/styles.css"> <!-- site-specific css file -->
 
-
+    <script src="/scripts/jquery.js" type="text/javascript"></script>
+    <script src="/scripts/app.js" type="text/javascript"></script>
 </head>
 <body>
     <!--[if lt IE 7]>
@@ -30,19 +31,17 @@
     <section class="basketcount">
       Current basket: <button type="button" name="button">5</button> items
     </section>
-
-    <%= yield %>
-
+    <section id="container">
+      <%= yield %>
+    </section>
     <footer>
       <nav>
-        <a href="/home"></a>
-        <a href="/shop"></a>
-        <a href="/delivery"></a>
-        <a href="/signout"></a>
-        <a href="/about"></a>
+        <a href="/">Home</a>
+        <a href="/shop">Shop</a>
+        <a href="/delivery">Delivery</a>
+        <a href="/about">About</a>
+        <a href="/users/signout">Sign Out</a>
       </nav>
     </footer>
-    <script src="/scripts/jquery.js" type="text/javascript"></script>
-    <script src="/scripts/app.js" type="text/javascript"></script>
 </body>
 </html>

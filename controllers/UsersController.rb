@@ -4,4 +4,8 @@ class UsersController < ApplicationController
     erb :index
   end
 
+  get '/signout' do
+    redirect '/users'
+  end
+
 end

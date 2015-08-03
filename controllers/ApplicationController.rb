@@ -25,4 +25,8 @@ class ApplicationController < Sinatra::Base
    erb :not_found
  end
 
+ get '/about' do
+   erb :about
+ end
+
 end
