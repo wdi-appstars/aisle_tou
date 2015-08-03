@@ -8,7 +8,7 @@ CREATE TABLE deliveries (id SERIAL PRIMARY KEY, date date, time_of_day_id int, b
 
 CREATE TABLE baskets (id SERIAL PRIMARY KEY, total_price decimal, item_count int, user_id int);
 
-CREATE TABLE basket_items (id SERIAL PRIMARY KEY, basket_id int, food_id int, item_count int);
+CREATE TABLE basket_items (id SERIAL PRIMARY KEY, basket_id int, food_id int, item_count int, scheduled boolean);
 
 CREATE TABLE food (id SERIAL PRIMARY KEY, name varchar(255), catergory_id int);
 
