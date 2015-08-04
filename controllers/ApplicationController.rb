@@ -19,11 +19,24 @@ class ApplicationController < Sinatra::Base
   #   enable :logging
   # end
 
-  
+  enable :sessions
 
   # Helper functions for the app
-  def current
+  def current_user
+    session[:current_user]
+  end
 
+  def is_authenticated?
+    if session[:current_user].nil?
+      puts "Not logged in"
+      return false
+    else
+      puts "Logged in"
+      return true
+    end
+  end
+
+  
 
  # will be used to display 404 pages
  not_found do
