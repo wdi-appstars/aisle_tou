@@ -9,7 +9,7 @@ $(document).ready(function() {
 
   //do the ajax call for posting signin
   $('#signin').on('click', function() {
-    console.log($('input[type=email_address]').val());
+    console.log($('input[name=email_address]').val());
     app.ajaxLoginData = {
       url: '/users/signin',
       type: 'POST',
