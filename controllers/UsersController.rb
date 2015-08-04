@@ -11,6 +11,7 @@ class UsersController < ApplicationController
   end
 
   get '/' do
+    @message = 'Welcome!'
     erb :index
   end
 
@@ -25,10 +26,14 @@ class UsersController < ApplicationController
         session[:current_user] = user_email
         redirect '/'
       else
-        redirect 'users/error'
+        @message = 'Error: Invalid password'
+        puts 'Invalid password'
+
       end
     else
-      redirect 'users/error'
+      @message = 'Error: Invalid email'
+      puts 'Invalid email'
+    
     end
   end
 
@@ -41,10 +46,6 @@ class UsersController < ApplicationController
     new_user.password_salt = BCrypt::Engine.generate_salt
     new_user.password_hash = BCrypt::Engine.hash_secret(params[:password], new_user.password_salt)
     new_user.save
-  end
-
-  get '/error' do
-    puts "Error!"
   end
 
   get '/signout' do

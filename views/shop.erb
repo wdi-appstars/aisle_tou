@@ -3,14 +3,22 @@
 
    <ul id="shoppinglist">
 
+      <% @foods.each do |food| %>
+
      <li class="shoppinglistitem">
-       <label>Meats</label>
+       <label><%= food[:category] %></label>
        <span class="expand">+</span>
        <ul class="fooditemlist">
+         <% food[:foods].each do |foodItem| %>
+
          <li class="fooditem">
-           <label>Chicken Filets</label>
+           <label><%= foodItem[:name] %></label>
+           <label><%= foodItem[:price] %></label>
            <span class="additem">add to basket &gt;</span>
          </li>
+        <% end %>
        </ul>
      </li>
+     <% end %>
+   </ul>
 </section>

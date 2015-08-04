@@ -13,7 +13,7 @@ CREATE TABLE baskets (id SERIAL PRIMARY KEY, total_price decimal, item_count int
 
 CREATE TABLE basket_items (id SERIAL PRIMARY KEY, basket_id int, food_id int, item_count int, scheduled boolean);
 
-CREATE TABLE food (id SERIAL PRIMARY KEY, name varchar(255), price decimal, catergory_id int);
+CREATE TABLE foods (id SERIAL PRIMARY KEY, name varchar(255), price decimal, category_id int);
 
 CREATE TABLE food_categories (id SERIAL PRIMARY KEY, name varchar(255));
 
@@ -25,6 +25,12 @@ ALTER TABLE food ADD price decimal;
 
 #NEED TO FIX TYPO ON COLUMN NAME!!!
 ALTER TABLE users RENAME email_adress TO email_address;
+
+# NEED to fix typo
+ALTER TABLE foods RENAME catergory_id TO category_id;
+
+# NEED to pluralize food table to foods
+ALTER TABLE food RENAME TO foods;
 
 #ADD ALL THE FOOD CATEGORIES
 INSERT INTO food_categories (name) VALUES ('Animal-Pet Foods');
