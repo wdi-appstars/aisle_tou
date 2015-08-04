@@ -35,6 +35,7 @@ class UsersController < ApplicationController
   post '/signup' do
     if does_user_exist?(params[:email_address])
       redirect '/users/error'
+    end
     new_user = Users.new
     new_user.email_address = params[:email_address]
     new_user.password_salt = BCrypt::Engine.generate_salt
