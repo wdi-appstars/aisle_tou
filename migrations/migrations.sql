@@ -5,7 +5,7 @@ CREATE DATABASE aisle_tou;
 \c aisle_tou;
 
 #CREATE ALL THE TABLES
-CREATE TABLE users (id SERIAL PRIMARY KEY, email_address varchar(255), passowrd_hash varchar(255), password_salt varchar(255));
+CREATE TABLE users (id SERIAL PRIMARY KEY, email_address varchar(255), password_hash varchar(255), password_salt varchar(255));
 
 CREATE TABLE deliveries (id SERIAL PRIMARY KEY, date date, time_of_day_id int, basket_id int, user_id int);
 
@@ -26,11 +26,14 @@ ALTER TABLE food ADD price decimal;
 #NEED TO FIX TYPO ON COLUMN NAME!!!
 ALTER TABLE users RENAME email_adress TO email_address;
 
+# NEED to pluralize food table to foods
+ALTER TABLE food RENAME TO foods;
+
 # NEED to fix typo
 ALTER TABLE foods RENAME catergory_id TO category_id;
 
-# NEED to pluralize food table to foods
-ALTER TABLE food RENAME TO foods;
+# NEED to fix typo
+ALTER TABLE users RENAME passowrd_hash TO password_hash;
 
 #ADD ALL THE FOOD CATEGORIES
 INSERT INTO food_categories (name) VALUES ('Animal-Pet Foods');

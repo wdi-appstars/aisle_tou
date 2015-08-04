@@ -26,26 +26,24 @@ class UsersController < ApplicationController
         session[:current_user] = user_email
         redirect '/'
       else
-        @message = 'Error: Invalid password'
-        puts 'Invalid password'
+        status 403
 
       end
     else
-      @message = 'Error: Invalid email'
-      puts 'Invalid email'
-    
+      status 403
     end
   end
 
   post '/signup' do
     if does_user_exist?(params[:email_address])
-      redirect '/users/error'
+      status 400
+    else
+      new_user = Users.new
+      new_user.email_address = params[:email_address]
+      new_user.password_salt = BCrypt::Engine.generate_salt
+      new_user.password_hash = BCrypt::Engine.hash_secret(params[:password], new_user.password_salt)
+      new_user.save
     end
-    new_user = Users.new
-    new_user.email_address = params[:email_address]
-    new_user.password_salt = BCrypt::Engine.generate_salt
-    new_user.password_hash = BCrypt::Engine.hash_secret(params[:password], new_user.password_salt)
-    new_user.save
   end
 
   get '/signout' do
