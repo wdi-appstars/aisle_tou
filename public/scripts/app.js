@@ -138,6 +138,22 @@ $(document).ready(function() {
   //reflect the correct basketcount on the button
   get_basket_count(app.current_user_id)
 
+  // clear basket items for a given login user
+  $('#clear').on('click', function(){
+    $.ajax({
+      url: '/basket/clear',
+      type: 'POST',
+      data: {clearbasket: true},
+      success: function() {
+        $('.basketitem').hide();
+      },
+      error: function(err) {
+
+      }
+    });
+
+  });
+
 }); // end document ready
 
 function get_basket_count(user_id) {

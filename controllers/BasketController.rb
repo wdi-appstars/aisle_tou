@@ -31,7 +31,7 @@ class BasketController < ApplicationController
       newBasketItem.scheduled = false
       newBasketItem.item_count = 1
       newBasketItem.save
-      food_price = Foods.find(params['food_id'])
+      food_price = Foods.find(params['food_id']).price
       @basket.total_price += food_price
       @basket.item_count += 1
       @basket.save
@@ -39,7 +39,7 @@ class BasketController < ApplicationController
     else
       existingItem.item_count += 1
       existingItem.save
-      food_price = Foods.find(params['food_id'])
+      food_price = Foods.find(params['food_id']).price
       @basket.total_price += food_price
       @basket.item_count += 1
       @basket.save
@@ -47,15 +47,29 @@ class BasketController < ApplicationController
   end
 
   post '/remove' do
+    get_user_basket
     item_to_remove = Basket_items.find_by(:food_id => params['food_id'])
     puts "item to remove has an item count of: #{item_to_remove.item_count}"
     if item_to_remove.item_count > 0
         item_to_remove.item_count -= 1
         item_to_remove.save
+        food_price = Foods.find(params['food_id']).price
+        @basket.total_price -= food_price
+        @basket.item_count -= 1
+        @basket.save
     end
   end
 
-  def get_user_basekt
+  post '/clear' do
+    if params[:clearbasket]
+      items_destroy = Basket_items.where(:basket_id => Baskets.find(session[:current_user_id]).id)
+      items_destroy.destroy
+    end
+  end
+
+
+
+  def get_user_basket
     @user = Users.find_by(:email_address => session[:current_user])
     @basket = Baskets.find_by(:user_id => @user.id)
   end
