@@ -15,12 +15,17 @@
   </article>
 
   <article class="calendar">
-    <label for="calendardate">Date:</label>
-    <input id="calendardate" type="date" name="delivery_date" placeholde="Choose Delivery Date">
-    <input type="button" name="time_of_day" value="morning">
-    <input type="button" name="time_of_day" value="afternoon">
-    <input type="button" name="time_of_day" value="evening">
-    <input type="submit" id="savedelivery" value="Save">
-    <button id="canceldelivery">Cancel</button>
+    <form action="/delivery/success" method="post">
+      <label for="calendardate">Date:</label>
+      <input id="calendardate" type="date" name="delivery_date" placeholde="Choose Delivery Date">
+      <% @time_of_days.each do |day| %>
+      <label for="<%= day.name.downcase %>"><%= day.name %></label>
+      <input type="radio" name="time_of_day" id="<%= day.name.downcase %>" value="<%= day.id %>">
+      <% end %>
+      <input type="submit" id="savedelivery" value="Save">
+    </form>
+    <form action="/delivery/cancel" method="post">
+      <input type="submit" id="canceldelivery" value="Cancel">
+    </form>
   </article>
 </section>
