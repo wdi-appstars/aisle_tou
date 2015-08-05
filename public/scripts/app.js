@@ -75,7 +75,10 @@ $(document).ready(function() {
       $.ajax(app.ajaxShoppingData);
   });
 
-
+  //on click of global basket button, redirect to basket
+  $('.basketcount button').on('click', function() {
+    window.location = '/basket';
+  });
 
 
 

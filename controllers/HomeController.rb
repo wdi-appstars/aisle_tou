@@ -1,6 +1,10 @@
 class HomeController < ApplicationController
 
- get '/' do
+
+  get '/' do
+
+   puts session[:current_user]
+   authorization_check
    erb :dashboard
  end
 

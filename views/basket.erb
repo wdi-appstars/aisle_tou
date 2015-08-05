@@ -1,11 +1,15 @@
 <section id="basket">
-  <ul id="baksetitems">
-      <label>Carrots</label>
-      <span class="price">$12.99</span>
+  <ul id="basketitems">
+    <% @foods.each do |food| %>
+    <li class="basketitem">
+      <label><%= food[:name] %></label>
+      <span class="price">$<%= food[:price] %></span>
+    </li>
+    <% end %>
   </ul>
   <div class="baskettotalprice">
-    <label>TOTAL:</label>
-    <span class="totalprice">$12.99</span>
+    <label>TOTAL: </label>
+    <span class="totalprice">$<%= @total_cost %></span>
   </div>
   <button id="scheduledelivery">Schedule Delivery</button>
 </section>

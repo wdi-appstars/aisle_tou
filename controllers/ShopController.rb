@@ -1,6 +1,7 @@
 class ShopController < ApplicationController
 
  get '/' do
+   puts session[:current_user]
    authorization_check
    @foods = []
    foodCats = Food_categories.all

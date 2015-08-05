@@ -19,12 +19,11 @@ class UsersController < ApplicationController
   end
 
   get '/' do
-    @message = 'Welcome!'
     erb :index
   end
 
   post '/signin' do
-    user_email = params['email_address']
+    user_email = params[:email_address]
     user_password = params['password']
     puts "This is the user's email address: #{user_email}"
 
@@ -51,7 +50,7 @@ class UsersController < ApplicationController
       new_user.password_salt = BCrypt::Engine.generate_salt
       new_user.password_hash = BCrypt::Engine.hash_secret(params[:password], new_user.password_salt)
       new_user.save
-      session[:current_user] = user_email
+      session[:current_user] = params[:email_address]
       self.create_basket(new_user.id)
     end
   end
