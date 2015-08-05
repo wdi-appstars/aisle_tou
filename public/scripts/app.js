@@ -166,6 +166,10 @@ $(document).ready(function() {
     window.location = '/basket';
   });
 
+  $('.returnhome').on('click', function() {
+    window.location = '/';
+  });
+
 }); // end document ready
 
 function get_basket_count(user_id) {

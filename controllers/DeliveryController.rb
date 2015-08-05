@@ -23,10 +23,12 @@ class DeliveryController < ApplicationController
     new_delivery.user_id = @user.id
     new_delivery.save
 
-    basket_items_to_deliver = Basket_items.where(:basket_id => @basket.id)
+    basket_items_to_deliver = Basket_items.where(:scheduled => false)
 
     basket_items_to_deliver.each do |item|
       item.scheduled = true
+      item.item_count = 0
+      item.last_scheduled_date = @delivery_date
       item.save
     end
 

@@ -40,6 +40,7 @@ class BasketController < ApplicationController
 
     else
       existingItem.item_count += 1
+      existingItem.scheduled = false
       existingItem.save
       food_price = Foods.find(params['food_id']).price
       @basket.total_price += food_price
