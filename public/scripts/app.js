@@ -54,4 +54,29 @@ $(document).ready(function() {
     }
     $.ajax(app.ajaxLoginData);
   });// end on click of sign up
+
+  //do the ajax call for adding a new food item to the basket
+  $('li.fooditem').on('click', function() {
+      app.ajaxShoppingData = {
+        url: '/basket',
+        type: 'POST',
+        data: {
+          food_id: $(this).data('foodid'),
+          basket_id: $('input[name=basket_id]').attr('value')
+        },
+        success: function () {
+          $(this).slideUp(500);
+        },
+        error: function () {
+          //sorry it failed
+        }
+      }
+      console.log(app.ajaxShoppingData);
+      $.ajax(app.ajaxShoppingData);
+  });
+
+
+
+
+
 }); // end document ready

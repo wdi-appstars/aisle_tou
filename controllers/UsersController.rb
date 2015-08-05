@@ -10,6 +10,14 @@ class UsersController < ApplicationController
     end
   end
 
+  def create_basket(user_id)
+    empty_basket = Baskets.new
+    empty_basket.user_id = user_id
+    empty_basket.item_count = 0
+    empty_basket.total_price = 0
+    empty_basket.save
+  end
+
   get '/' do
     @message = 'Welcome!'
     erb :index
@@ -43,10 +51,13 @@ class UsersController < ApplicationController
       new_user.password_salt = BCrypt::Engine.generate_salt
       new_user.password_hash = BCrypt::Engine.hash_secret(params[:password], new_user.password_salt)
       new_user.save
+      session[:current_user] = user_email
+      self.create_basket(new_user.id)
     end
   end
 
   get '/signout' do
+    session[:current_user] = nil
     redirect '/users'
   end
 

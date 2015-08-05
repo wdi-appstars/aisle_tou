@@ -36,7 +36,11 @@ class ApplicationController < Sinatra::Base
     end
   end
 
-  
+  def authorization_check
+    if session[:current_user].nil?
+      redirect '/users'
+    end
+  end
 
  # will be used to display 404 pages
  not_found do

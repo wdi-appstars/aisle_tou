@@ -1,6 +1,6 @@
 
 <section id="shopping">
-
+  <input type="hidden" name="basket_id" value="<%= @basket.id %>">
    <ul id="shoppinglist">
 
       <% @foods.each do |food| %>
@@ -11,7 +11,7 @@
        <ul class="fooditemlist">
          <% food[:foods].each do |foodItem| %>
 
-         <li class="fooditem">
+         <li class="fooditem" data-foodid= <%= foodItem[:food_id] %> >
            <label><%= foodItem[:name] %></label>
            <label><%= foodItem[:price] %></label>
            <span class="additem">add to basket &gt;</span>
