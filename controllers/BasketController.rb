@@ -5,8 +5,7 @@ class BasketController < ApplicationController
     authorization_check
 
     @foods = []
-    @user = Users.find_by(:email_address => session[:current_user])
-    @basket = Baskets.find_by(:user_id => @user.id)
+    get_user_basket
     @basket_items = Basket_items.where(:basket_id => @basket.id)
     @total_cost = 0
     @basket_items.each do |item|
@@ -23,6 +22,7 @@ class BasketController < ApplicationController
   end
 
   post '/' do
+    get_user_basket
     existingItem = Basket_items.find_by(:basket_id => params['basket_id'], :food_id => params['food_id'])
     if existingItem.nil?
       newBasketItem = Basket_items.new
@@ -31,9 +31,18 @@ class BasketController < ApplicationController
       newBasketItem.scheduled = false
       newBasketItem.item_count = 1
       newBasketItem.save
+      food_price = Foods.find(params['food_id'])
+      @basket.total_price += food_price
+      @basket.item_count += 1
+      @basket.save
+
     else
       existingItem.item_count += 1
       existingItem.save
+      food_price = Foods.find(params['food_id'])
+      @basket.total_price += food_price
+      @basket.item_count += 1
+      @basket.save
     end
   end
 
@@ -45,4 +54,11 @@ class BasketController < ApplicationController
         item_to_remove.save
     end
   end
+
+  def get_user_basekt
+    @user = Users.find_by(:email_address => session[:current_user])
+    @basket = Baskets.find_by(:user_id => @user.id)
+  end
+
+
 end

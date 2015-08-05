@@ -67,11 +67,12 @@ class UsersController < ApplicationController
     puts params['splat'][0]
     @user = Users.find(params['splat'][0])
     @basket = Baskets.find_by(:user_id => @user.id)
-    @basket_items = Basket_items.where(:basket_id => @basket.id)
-    @basket_count = 0;
-    @basket_items.each do |item|
-      @basket_count += item.item_count
-    end
+    @basket_count = @basket.item_count
+    # @basket_items = Basket_items.where(:basket_id => @basket.id)
+    # @basket_count = 0;
+    # @basket_items.each do |item|
+    # @basket_count += item.item_count
+    # end
     {:user_id => @user.id, :basket_count => @basket_count}.to_json
   end
 
