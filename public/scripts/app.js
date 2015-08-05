@@ -147,6 +147,8 @@ $(document).ready(function() {
       success: function() {
         console.log('I am in the success function for ajax clear basket!');
         $('.basketitem').hide();
+        $('.basketcount button').html(0);
+        $('.totalprice').html('$0.00');
       },
       error: function(err) {
 
