@@ -13,7 +13,9 @@ class BasketController < ApplicationController
       food_name = Foods.find(food_id).name
       food_quantity = item.item_count
       food_cost = Foods.find(food_id).price * food_quantity
-      @total_cost += food_cost
+      if item.scheduled == false
+        @total_cost += food_cost
+      end
       @foods.push(:id => food_id, :name => food_name, :price => food_cost, :quantity => food_quantity) if (food_quantity > 0 && item.scheduled == false)
 
     end

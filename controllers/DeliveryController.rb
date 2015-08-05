@@ -11,6 +11,7 @@ class DeliveryController < ApplicationController
   end
 
   post '/success' do
+    @delivery_time = Time_of_days.find(params['time_of_day']).name
     puts "post for new delivery successful"
     @delivery_date = params['delivery_date']
     @time_of_day = params['time_of_day']
@@ -21,6 +22,18 @@ class DeliveryController < ApplicationController
     new_delivery.basket_id = @basket.id
     new_delivery.user_id = @user.id
     new_delivery.save
+
+    basket_items_to_deliver = Basket_items.where(:basket_id => @basket.id)
+
+    basket_items_to_deliver.each do |item|
+      item.scheduled = true
+      item.save
+    end
+
+    @basket.item_count = 0
+    @basket.total_price = 0
+    @basket.save
+
     erb :delivery_success
   end
 
