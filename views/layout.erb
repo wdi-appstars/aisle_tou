@@ -9,7 +9,7 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1"> <!-- Will make sure your site scales properly for mobile http://goo.gl/teFgfK-->
 
-    <link rel="shortcut icon" type="image/ico" href="/images/favicon.ico" /> <!-- Site icon that appears next to the title in tab -->
+    <!-- <link rel="shortcut icon" type="image/ico" href="/images/favicon.ico" /> -->
 
     <link rel="stylesheet" href="/styles/normalize.css"> <!-- Normalize.css makes browsers render all elements more consistently and in line with modern standards http://goo.gl/2trj5P-->
 
@@ -29,7 +29,7 @@
       <h1></h1>
     </header>
     <section class="basketcount">
-      Current basket: <button data-userid=<%= session[:current_user_id] %> >5</button> items
+      Current basket: <button data-userid=<%= session[:current_user_id] %> ></button> items
     </section>
     <section id="container">
       <%= yield %>

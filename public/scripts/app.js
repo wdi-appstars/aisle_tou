@@ -139,12 +139,13 @@ $(document).ready(function() {
   get_basket_count(app.current_user_id)
 
   // clear basket items for a given login user
-  $('#clear').on('click', function(){
+  $('#clear').on('click', function() {
     $.ajax({
       url: '/basket/clear',
       type: 'POST',
-      data: {clearbasket: true},
+      data: { clearbasket: true },
       success: function() {
+        console.log('I am in the success function for ajax clear basket!');
         $('.basketitem').hide();
       },
       error: function(err) {

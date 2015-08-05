@@ -14,7 +14,7 @@ class BasketController < ApplicationController
       food_quantity = item.item_count
       food_cost = Foods.find(food_id).price * food_quantity
       @total_cost += food_cost
-      @foods.push(:id => food_id, :name => food_name, :price => food_cost, :quantity => food_quantity) if food_quantity > 0
+      @foods.push(:id => food_id, :name => food_name, :price => food_cost, :quantity => food_quantity) if (food_quantity > 0 && item.scheduled == false)
 
     end
 
@@ -62,9 +62,19 @@ class BasketController < ApplicationController
 
   post '/clear' do
     if params[:clearbasket]
-      items_destroy = Basket_items.where(:basket_id => Baskets.find(session[:current_user_id]).id)
-      items_destroy.destroy
+      basket_to_clear = Baskets.find_by(:user_id => session[:current_user_id])
+      basket_id_to_clear = basket_to_clear.id
+      basket_to_clear.item_count = 0
+      basket_to_clear.total_price = 0.0
+      basket_to_clear.save
+      puts "Basket ID to clear is #{basket_id_to_clear}"
+      items_destroy = Basket_items.where(:basket_id => basket_id_to_clear)
+      items_destroy.each do |item|
+        item.destroy
+      end
     end
+    # status 200
+    {:name => 'qoeks'}.to_json
   end
 
 
