@@ -3,7 +3,9 @@
     <% @foods.each do |food| %>
     <li class="basketitem">
       <label><%= food[:name] %></label>
+      <span class="quantity" id=item<%= food[:id] %> >x<%= food[:quantity] %></span>
       <span class="price">$<%= food[:price] %></span>
+      <button class="removebutton" data-foodid=<%= food[:id] %> data-price=<%= food[:price] / food[:quantity] %> >Remove</button>
     </li>
     <% end %>
   </ul>
@@ -11,5 +13,6 @@
     <label>TOTAL: </label>
     <span class="totalprice">$<%= @total_cost %></span>
   </div>
+  <button id="clear">Clear Basket</button>
   <button id="scheduledelivery">Schedule Delivery</button>
 </section>

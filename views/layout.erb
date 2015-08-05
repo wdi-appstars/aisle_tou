@@ -26,10 +26,10 @@
     <![endif]-->
 
     <header>
-      <h1>Home</h1>
+      <h1></h1>
     </header>
     <section class="basketcount">
-      Current basket: <button type="button" name="button"><%= @total_basket_count %></button> items
+      Current basket: <button data-userid=<%= session[:current_user_id] %> >5</button> items
     </section>
     <section id="container">
       <%= yield %>

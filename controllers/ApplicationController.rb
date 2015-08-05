@@ -21,14 +21,7 @@ class ApplicationController < Sinatra::Base
 
   enable :sessions
 
-  @total_basket_count = 0
-
   # Helper functions for the app
-
-  def self.total_basket_count=(basket_count)
-    @total_basket_count = basket_count
-  end
-
   def current_user
     session[:current_user]
   end

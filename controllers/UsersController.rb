@@ -31,6 +31,7 @@ class UsersController < ApplicationController
       user = Users.where(:email_address => user_email.to_s).first!
       if user.password_hash = BCrypt::Engine.hash_secret(user_password, user.password_salt)
         session[:current_user] = user_email
+        session[:current_user_id] = user.id
         redirect '/'
       else
         status 403
@@ -51,13 +52,27 @@ class UsersController < ApplicationController
       new_user.password_hash = BCrypt::Engine.hash_secret(params[:password], new_user.password_salt)
       new_user.save
       session[:current_user] = params[:email_address]
+      session[:current_user_id] = new_user.id
       self.create_basket(new_user.id)
     end
   end
 
   get '/signout' do
     session[:current_user] = nil
+    session[:current_user_id] = nil
     redirect '/users'
+  end
+
+  get '/api/user/*/basketcount' do
+    puts params['splat'][0]
+    @user = Users.find(params['splat'][0])
+    @basket = Baskets.find_by(:user_id => @user.id)
+    @basket_items = Basket_items.where(:basket_id => @basket.id)
+    @basket_count = 0;
+    @basket_items.each do |item|
+      @basket_count += item.item_count
+    end
+    {:user_id => @user.id, :basket_count => @basket_count}.to_json
   end
 
 end
