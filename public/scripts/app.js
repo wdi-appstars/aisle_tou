@@ -157,6 +157,15 @@ $(document).ready(function() {
 
   });
 
+  $('#scheduledelivery').on('click', function(){
+    window.location = '/delivery';
+
+  });
+
+  $('#editbasket').on('click', function(){
+    window.location = '/basket';
+  });
+
 }); // end document ready
 
 function get_basket_count(user_id) {
