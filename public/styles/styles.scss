@@ -183,6 +183,8 @@ header {
       padding: 0.5rem;
       float: right;
       input {
+        padding: 1rem;
+        padding-top: 0;
         float: right;
         margin: 0.5rem 0rem 0rem 0;
         color: $add-button-text-color;
@@ -221,7 +223,7 @@ header {
     margin: 0 auto;
     padding: 0;
     .pendingitem {
-      width: 40%;
+      width: 50%;
       margin: 0 auto;
       label {
         vertical-align: middle;
@@ -244,11 +246,12 @@ hr {
   ul {
     list-style: none;
     li {
+      padding-top: 0.6rem;
       width: 100%;
       border-top: 1px solid #ddd;
       label {
         vertical-align: middle;
-        width: 45%;
+        width: 42%;
         margin-left: 0.5rem;
         display: inline-block;
         font-size: $basket-item-text;
@@ -256,7 +259,7 @@ hr {
       span.quantity {
         color: $quantity-color;
         font-size: $quantity-text;
-        margin: 0 0.5rem 0 0.5rem;
+        margin: 0 0.3rem 0 0.3rem;
       }
       span.price {
         color: $price-color;
@@ -264,27 +267,100 @@ hr {
         margin: 0 0.3rem 0 0.3rem;
       }
       button {
-        margin: 0;
+        margin-right: 0.4rem;
         padding: 0.4rem;
         padding-top: 0;
         vertical-align: middle;
-        color: $add-button-text-color;
-        border: 0;
+        color: $remove-button-color;
+        border-color: $remove-button-color;
         border-radius: 5px;
-        background-color: $remove-button-color;
         font-size: $button-text;
+        float: right;
       }
     }
   }
   .baskettotalprice {
+    font-weight: bold;
+    font-size: $total-price-text;
     display: block;
+    width: 50%;
+    float: right;
     label {
       display: inline-block;
     }
   }
+  .basketactions {
+    width: 100%;
+    margin-bottom: 3rem;
+    button {
+      width: 94%;
+      height: 3rem;
+      margin: 0.3rem 3%;
+    }
+    #clear {
+      background-color: $remove-button-color;
+      color: $remove-button-text-color;
+      border: 0;
+    }
+    #scheduledelivery {
+      background-color: $add-button-color;
+      color: $add-button-text-color;
+    }
+  }
 }
 
-
+#shoppinglist {
+  list-style: none;
+  .expander {
+    border: 0;
+    opacity: 100%;
+    border-top: 1px solid #ddd;
+    label {
+      display: inline-block;
+      margin: 1rem 0 0.3rem 1rem;
+    }
+    .expand {
+      font-size: $expand-icon-size;
+      float: right;
+      color: $expand-icon-color;
+      margin-top: 0.7rem;
+      margin-right: 1rem;
+    }
+  }
+  .fooditemlist {
+    width: 100%;
+    list-style: none;
+    margin: 0;
+    font-size: $food-item-text;
+    li {
+      width: 100%;
+      border-top: 1px solid #ddd;
+      .fooditemname {
+        width: 40%;
+        float: left;
+        vertical-align: middle;
+        margin-left: 1.4rem;
+        margin-top: 1.7rem;
+        margin-right: 1rem;
+      }
+      .fooditemprice {
+        margin-top: 1.7rem;
+        float: left;
+      }
+      button {
+        padding: 1rem;
+        padding-top: 0;
+        float: left;
+        margin: 1rem 0 0rem 3.25rem;
+        color: $add-button-text-color;
+        border: 0;
+        border-radius: 5px;
+        background-color: $add-button-color;
+        font-size: $button-text;
+      }
+    }
+  }
+}
 
 
 
@@ -295,14 +371,14 @@ footer {
   position: fixed;
   bottom: 0;
   nav {
-    margin-right: 3%;
+    margin-left: 0;
     padding: 0;
     display: block;
     a {
       color: $nav-icon-color;
       text-align: center;
       padding: 0;
-      margin: 0.4rem 0 0.4rem 10%;
+      margin: 0.4rem 0 0.4rem 11.5%;
       float: left;
       text-decoration: none;
       font-size: $nav-icon-size;

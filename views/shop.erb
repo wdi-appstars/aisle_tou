@@ -6,15 +6,17 @@
       <% @foods.each do |food| %>
 
      <li class="shoppinglistitem">
-       <label><%= food[:category] %></label>
-       <span class="expand">+</span>
+       <div class="expander">
+         <label class="categoryname"><%= food[:category] %></label>
+         <span class="expand"><i class="fa fa-plus-circle"></i></span>
+       </div>
        <ul class="fooditemlist">
          <% food[:foods].each do |foodItem| %>
 
-         <li class="fooditem" data-foodid= <%= foodItem[:food_id] %> >
-           <label><%= foodItem[:name] %></label>
-           <label><%= foodItem[:price] %></label>
-           <span class="additem">add to basket &gt;</span>
+         <li class="fooditem clearfix" data-foodid= <%= foodItem[:food_id] %> >
+           <label class="fooditemname"><%= foodItem[:name] %></label>
+           <label class="fooditemprice">$<%= foodItem[:price] %></label>
+           <button>add</button>
          </li>
         <% end %>
        </ul>

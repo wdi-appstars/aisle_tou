@@ -152,6 +152,8 @@ header {
       padding: 0.5rem;
       float: right; }
       #restock li form input {
+        padding: 1rem;
+        padding-top: 0;
         float: right;
         margin: 0.5rem 0rem 0rem 0;
         color: #e6e6e6;
@@ -183,7 +185,7 @@ header {
     margin: 0 auto;
     padding: 0; }
     #pendingdeliveries li .pendingitem {
-      width: 40%;
+      width: 50%;
       margin: 0 auto; }
       #pendingdeliveries li .pendingitem label {
         vertical-align: middle;
@@ -201,36 +203,99 @@ hr {
   #basket ul {
     list-style: none; }
     #basket ul li {
+      padding-top: 0.6rem;
       width: 100%;
       border-top: 1px solid #ddd; }
       #basket ul li label {
         vertical-align: middle;
-        width: 45%;
+        width: 42%;
         margin-left: 0.5rem;
         display: inline-block;
         font-size: 1rem; }
       #basket ul li span.quantity {
         color: #bba886;
         font-size: 1rem;
-        margin: 0 0.5rem 0 0.5rem; }
+        margin: 0 0.3rem 0 0.3rem; }
       #basket ul li span.price {
         color: #323232;
         font-size: 1rem;
         margin: 0 0.3rem 0 0.3rem; }
       #basket ul li button {
-        margin: 0;
+        margin-right: 0.4rem;
         padding: 0.4rem;
         padding-top: 0;
         vertical-align: middle;
+        color: #8a0202;
+        border-color: #8a0202;
+        border-radius: 5px;
+        font-size: 0.5rem;
+        float: right; }
+  #basket .baskettotalprice {
+    font-weight: bold;
+    font-size: 1.3rem;
+    display: block;
+    width: 50%;
+    float: right; }
+    #basket .baskettotalprice label {
+      display: inline-block; }
+  #basket .basketactions {
+    width: 100%;
+    margin-bottom: 3rem; }
+    #basket .basketactions button {
+      width: 94%;
+      height: 3rem;
+      margin: 0.3rem 3%; }
+    #basket .basketactions #clear {
+      background-color: #8a0202;
+      color: #e6e6e6;
+      border: 0; }
+    #basket .basketactions #scheduledelivery {
+      background-color: #243853;
+      color: #e6e6e6; }
+
+#shoppinglist {
+  list-style: none; }
+  #shoppinglist .expander {
+    border: 0;
+    opacity: 100%;
+    border-top: 1px solid #ddd; }
+    #shoppinglist .expander label {
+      display: inline-block;
+      margin: 1rem 0 0.3rem 1rem; }
+    #shoppinglist .expander .expand {
+      font-size: 2rem;
+      float: right;
+      color: #bba886;
+      margin-top: 0.7rem;
+      margin-right: 1rem; }
+  #shoppinglist .fooditemlist {
+    width: 100%;
+    list-style: none;
+    margin: 0;
+    font-size: 0.8rem; }
+    #shoppinglist .fooditemlist li {
+      width: 100%;
+      border-top: 1px solid #ddd; }
+      #shoppinglist .fooditemlist li .fooditemname {
+        width: 40%;
+        float: left;
+        vertical-align: middle;
+        margin-left: 1.4rem;
+        margin-top: 1.7rem;
+        margin-right: 1rem; }
+      #shoppinglist .fooditemlist li .fooditemprice {
+        margin-top: 1.7rem;
+        float: left; }
+      #shoppinglist .fooditemlist li button {
+        padding: 1rem;
+        padding-top: 0;
+        float: left;
+        margin: 1rem 0 0rem 3.25rem;
         color: #e6e6e6;
         border: 0;
         border-radius: 5px;
-        background-color: #8a0202;
+        background-color: #243853;
         font-size: 0.5rem; }
-  #basket .baskettotalprice {
-    display: block; }
-    #basket .baskettotalprice label {
-      display: inline-block; }
 
 footer {
   width: 100%;
@@ -238,14 +303,14 @@ footer {
   position: fixed;
   bottom: 0; }
   footer nav {
-    margin-right: 3%;
+    margin-left: 0;
     padding: 0;
     display: block; }
     footer nav a {
       color: #e6e6e6;
       text-align: center;
       padding: 0;
-      margin: 0.4rem 0 0.4rem 10%;
+      margin: 0.4rem 0 0.4rem 11.5%;
       float: left;
       text-decoration: none;
       font-size: 1rem; }

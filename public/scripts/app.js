@@ -2,6 +2,21 @@
 var app = app || {}
 
 $(document).ready(function() {
+  //hide the food-times in shopping by default
+  $('.fooditemlist').hide();
+  //on click of shopping list category open food items
+  $('.expander').on('click', function() {
+    $this = $(this);
+    if ($this.siblings('ul').is(':visible')) {
+      $this.children('.expand').html('<i class="fa fa-plus-circle"></i>');
+    } else {
+      $this.children('.expand').html('<i class="fa fa-minus-circle"></i>');
+    }
+      $this.siblings('ul').slideToggle(200, 'linear', function() {
+        console.log('I am in the complete function!')
+      });
+  });
+
   //if the user is in /users page, hide the header, footer and basketcount
   if (document.location.pathname == '/users') {
     $('header, footer, .basketcount').hide();
