@@ -35,6 +35,9 @@ ALTER TABLE foods RENAME catergory_id TO category_id;
 # NEED to fix typo
 ALTER TABLE users RENAME passowrd_hash TO password_hash;
 
+# NEED to add last_scheduled_date column in basket_items
+ALTER TABLE basket_items ADD COLUMN last_scheduled_date date;
+
 #insert the time of days
 INSERT INTO time_of_days (name) VALUES ('Morning');
 INSERT INTO time_of_days (name) VALUES ('Afternoon');
