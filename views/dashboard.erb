@@ -1,31 +1,38 @@
 
 <section id="restock">
+  <h3>Items to Restock</h3>
 <ul id="restocklist">
+
+  <% @items_to_refresh.each do |item| %>
   <li class="restockitem">
 
     <form action="" method="post">
 
-      <label for="addbutton1">Food Item Name</label>
+      <label><%= item[:food] %></label>
 
-      <label for="addbutton1">22 Days</label>
+      <label><%= item[:age] %> Days</label>
 
-      <input id="addbutton1" name="add" type="submit" value="add">
+      <input class="addbutton" name="add" type="submit" value="add">
 
     </form>
   </li>
+  <% end %>
 </ul>
 </section>
 
 <section id="pendingdeliveries">
+  <h3>Pending Deliveries</h3>
 <ul id="pendingdeliverieslist">
+  <% @pending_deliveries.each do |delivery| %>
   <li class="pendingdeliveriesitem">
 
-    <label for="viewbutton1">8/17</label>
+    <label><%= delivery.date %></label>
 
-    <label for="viewbutton1">Evening</label>
+    <label>Evening</label>
 
-    <button id="viewbutton1">View</button>
+    <button class="viewbutton">View</button>
 
   </li>
+  <% end %>
 </ul>
 </section>
