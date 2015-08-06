@@ -13,7 +13,9 @@
 
     <link rel="stylesheet" href="/styles/normalize.css"> <!-- Normalize.css makes browsers render all elements more consistently and in line with modern standards http://goo.gl/2trj5P-->
 
-    <link rel="stylesheet" href="/styles/skeleton.css"> <!-- Include Skeleton.css for grid responsive Css layout
+    <link rel="stylesheet" href="/styles/skeleton.css"> <!-- Include Skeleton.css for grid responsive Css layout -->
+
+    <link rel="stylesheet" href="/font-awesome-4.4.0/scss/font-awesome.css"> <!-- font awesome for icons -->
 
     <link rel="stylesheet" href="/styles/styles.css"> <!-- site-specific css file -->
 
@@ -29,18 +31,18 @@
       <h1></h1>
     </header>
     <section class="basketcount">
-      Current basket: <button data-userid=<%= session[:current_user_id] %> ></button> items
+      <p>Current basket: <button data-userid=<%= session[:current_user_id] %> ></button> items</p>
     </section>
     <section id="container">
       <%= yield %>
     </section>
     <footer>
       <nav>
-        <a href="/">Home</a>
-        <a href="/shop">Shop</a>
-        <a href="/delivery">Delivery</a>
-        <a href="/about">About</a>
-        <a href="/users/signout">Sign Out</a>
+        <a href="/"><i class="fa fa-home"></i><p>Home</p></a>
+        <a href="/shop"><i class="fa fa-shopping-cart"></i><p>Shop</p></a>
+        <a href="/delivery"><i class="fa fa-calendar"></i><p>Calendar</p></a>
+        <a href="/about"><i class="fa fa-info-circle"></i><p>About</p></a>
+        <a href="/users/signout"><i class="fa fa-sign-out"></i><p>Sign Out</p></a>
       </nav>
     </footer>
 </body>
