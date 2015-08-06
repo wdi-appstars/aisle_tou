@@ -1,4 +1,7 @@
 <section id="basket">
+  <p class="message">
+    <%= @basket_message %>
+  </p>
   <ul id="basketitems">
     <% @foods.each do |food| %>
     <li class="basketitem">

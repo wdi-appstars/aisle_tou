@@ -1,7 +1,7 @@
 
 <section id="restock">
   <h3>Items to Restock</h3>
-  <p>
+  <p class="message">
     <%= @restock_message %>
   </p>
 <ul id="restocklist">
@@ -9,11 +9,14 @@
   <% @items_to_refresh.each do |item| %>
   <li class="restockitem">
 
-    <form action="" method="post">
+    <form action="/basket" method="post">
 
       <label><%= item[:food] %></label>
 
       <label><%= item[:age] %> Days</label>
+
+      <input type="hidden" name="basket_id" value="<%= @basket.id %>">
+      <input type="hidden" name="food_id" value="<%= item[:food_id] %>">
 
       <input class="addbutton" name="add" type="submit" value="add">
 
@@ -25,16 +28,16 @@
 
 <section id="pendingdeliveries">
   <h3>Pending Deliveries</h3>
-  <p>
+  <p class="message">
     <%= @deliveries_message %>
   </p>
 <ul id="pendingdeliverieslist">
   <% @pending_deliveries.each do |delivery| %>
   <li class="pendingdeliveriesitem">
 
-    <label><%= delivery.date %></label>
+    <label><%= delivery[:delivery_date] %></label>
 
-    <label>Evening</label>
+    <label><%= delivery[:time_of_day] %></label>
 
     <button class="viewbutton">View</button>
 

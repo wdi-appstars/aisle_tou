@@ -3,10 +3,13 @@ class BasketController < ApplicationController
   get '/' do
     puts session[:current_user]
     authorization_check
-
+    @basket_message = ''
     @foods = []
     get_user_basket
-    @basket_items = Basket_items.where(:basket_id => @basket.id)
+    @basket_items = Basket_items.where(:basket_id => @basket.id).where(:scheduled => false)
+    @basket_item_count = @basket_items.count
+    puts "the basket count is #{@basket_item_count}"
+    @basket_message = 'You have no items in your basket' if @basket_item_count == 0
     @total_cost = 0
     @basket_items.each do |item|
       food_id = item.food_id
@@ -47,11 +50,12 @@ class BasketController < ApplicationController
       @basket.item_count += 1
       @basket.save
     end
+    redirect '/basket'
   end
 
   post '/remove' do
     get_user_basket
-    item_to_remove = Basket_items.find_by(:food_id => params['food_id'])
+    item_to_remove = Basket_items.where(:scheduled => false).find_by(:food_id => params['food_id'])
     puts "item to remove has an item count of: #{item_to_remove.item_count}"
     if item_to_remove.item_count > 0
         item_to_remove.item_count -= 1
@@ -71,13 +75,14 @@ class BasketController < ApplicationController
       basket_to_clear.total_price = 0.0
       basket_to_clear.save
       puts "Basket ID to clear is #{basket_id_to_clear}"
-      items_destroy = Basket_items.where(:basket_id => basket_id_to_clear)
+      items_destroy = Basket_items.where(:basket_id => basket_id_to_clear).where(:scheduled => false)
       items_destroy.each do |item|
         item.destroy
       end
     end
     # status 200
-    {:name => 'qoeks'}.to_json
+    redirect '/basket'
+    {:status => 'success'}.to_json
   end
 
 

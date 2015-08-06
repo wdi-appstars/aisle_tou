@@ -21,7 +21,6 @@ $(document).ready(function() {
         'password': $('input[name=password]').val()
       },
       success: function() {
-        $('.signinmessage').html('Congrats you are logged in!');
         window.location = "/";
       },
       error: function() {
@@ -45,7 +44,6 @@ $(document).ready(function() {
         'password': $('input[name=password]').val()
       },
       success: function() {
-        $('.signupmessage').html('Congrats you are registered');
         window.location = "/";
       },
       error: function() {
@@ -92,13 +90,15 @@ $(document).ready(function() {
         food_id: app.food_id_to_remove
       },
       success: function() {
-        console.log('success, success!  I have the money to save the goon docks!');
         quantity = $this_quantity.html().split('')
         quantity.shift();
         quantity = quantity.join('') - 1;
         $this_quantity.html('x' + quantity.toString());
         if (quantity <= 0) {
-          $this_item.hide();
+          $this_item.detach();
+        }
+        if ($('.basketitem').length == 0) {
+          $('#basket .message').html('You have no items in your basket');
         }
         $('.basketcount button').html(parseInt($('.basketcount button').html()) - 1);
         unit_price = $this.data('price');
@@ -149,6 +149,7 @@ $(document).ready(function() {
         $('.basketitem').hide();
         $('.basketcount button').html(0);
         $('.totalprice').html('$0.00');
+        $('#basket .message').html('You have no items in your basket');
       },
       error: function(err) {
 
