@@ -6,6 +6,8 @@ class HomeController < ApplicationController
    puts session[:current_user]
    authorization_check
    @oldest_sheduled_items = Basket_items.where(:scheduled => true, :basket_id => @basket.id).order('last_scheduled_date ASC')
+   @restock_message = ''
+   @deliveries_message = ''
    @items_to_refresh = []
    @oldest_sheduled_items.each do |item|
     current_food_item = Foods.find(item.food_id).name
@@ -18,6 +20,13 @@ class HomeController < ApplicationController
 
    @pending_deliveries = Deliveries.where({:user_id => session[:current_user_id]}).where('date > ?', Date.today)
 
+   if @items_to_refresh.length == 0
+     @restock_message = "No old items to restock"
+   end
+
+   if @pending_deliveries.length == 0
+     @deliveries_message = "No pending deliveries"
+   end
 
    erb :dashboard
  end

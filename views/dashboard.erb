@@ -1,6 +1,9 @@
 
 <section id="restock">
   <h3>Items to Restock</h3>
+  <p>
+    <%= @restock_message %>
+  </p>
 <ul id="restocklist">
 
   <% @items_to_refresh.each do |item| %>
@@ -22,6 +25,9 @@
 
 <section id="pendingdeliveries">
   <h3>Pending Deliveries</h3>
+  <p>
+    <%= @deliveries_message %>
+  </p>
 <ul id="pendingdeliverieslist">
   <% @pending_deliveries.each do |delivery| %>
   <li class="pendingdeliveriesitem">
