@@ -224,14 +224,15 @@ header {
     list-style: none;
     margin: 0; }
   #pendingdeliveries li {
-    border: 1px solid #666;
-    background-color: #909090;
+    border-bottom: 1px solid #e6e6e6;
+    background-color: #243853;
     color: #e6e6e6;
     width: 100%;
     margin: 0 auto;
     padding: 0; }
     #pendingdeliveries li .pendingitem {
-      width: 50%;
+      text-align: center;
+      width: 33%;
       margin: 0 auto; }
       #pendingdeliveries li .pendingitem label {
         vertical-align: middle;
@@ -286,7 +287,7 @@ hr {
       display: inline-block; }
   #basket .basketactions {
     width: 100%;
-    margin-bottom: 3rem; }
+    margin-bottom: 4rem; }
     #basket .basketactions button {
       width: 94%;
       height: 3rem;
@@ -342,6 +343,74 @@ hr {
         border-radius: 5px;
         background-color: #243853;
         font-size: 0.5rem; }
+
+#delivery {
+  margin-top: 6rem; }
+
+#leftsummary {
+  float: left;
+  margin-left: 2rem; }
+  #leftsummary .summaryordertotal {
+    font-size: 1rem;
+    font-weight: bold; }
+  #leftsummary .summaryitemcount {
+    font-size: 1rem;
+    font-weight: bold; }
+
+#rightsummary {
+  float: right;
+  margin-right: 2rem; }
+  #rightsummary button {
+    background-color: #243853;
+    color: #e6e6e6;
+    border: 0; }
+
+.calendar {
+  width: 85%;
+  margin: 0 auto; }
+  .calendar #datelabel {
+    font-size: 1.2rem;
+    display: inline-block; }
+  .calendar .radiolabel {
+    font-size: 0.7rem;
+    display: inline-block;
+    margin-right: 0.5rem; }
+  .calendar input[type=date] {
+    height: 3rem;
+    margin-top: 2rem; }
+  .calendar #savebutton, .calendar #canceldelivery {
+    width: 100%;
+    height: 3rem;
+    margin: 0.5rem auto; }
+  .calendar #savebutton {
+    margin-top: 2rem;
+    background-color: #243853;
+    border: 0;
+    color: #e6e6e6; }
+  .calendar #canceldelivery {
+    background-color: #8a0202;
+    color: #e6e6e6;
+    border: 0;
+    margin-bottom: 5rem; }
+  .calendar form {
+    margin: 0;
+    width: 100%; }
+
+.schedulesuccess {
+  margin-top: 6rem; }
+
+.deliverycancel {
+  margin-top: 6rem; }
+
+.buttonwrap {
+  width: 90%;
+  margin: 0 auto; }
+  .buttonwrap button {
+    width: 100%;
+    margin-top: 2rem;
+    background-color: #243853;
+    border: 0;
+    color: #e6e6e6; }
 
 footer {
   width: 100%;

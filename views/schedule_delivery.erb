@@ -1,5 +1,5 @@
 <section id="delivery">
-  <article class="basketsummary">
+  <article class="basketsummary clearfix">
     <div id="leftsummary">
       <div class="summaryordertotal">
         Order total: $<%= @basket_total_price %>
@@ -13,18 +13,18 @@
     </div>
     <!-- put a line right here in CSS - bottom border for .basketsummary -->
   </article>
-
+  <hr>
   <article class="calendar">
     <form action="/delivery/success" method="post">
-      <label for="calendardate">Date:</label>
-      <input id="calendardate" type="date" name="delivery_date" placeholde="Choose Delivery Date">
+      <label id="datelabel" for="calendardate">Date:</label>
+      <input id="calendardate" type="date" name="delivery_date" placeholde="Choose Delivery Date"><br />
       <% @time_of_days.each do |day| %>
-      <label for="<%= day.name.downcase %>"><%= day.name %></label>
       <input type="radio" name="time_of_day" id="<%= day.name.downcase %>" value="<%= day.id %>">
+      <label class="radiolabel" for="<%= day.name.downcase %>"><%= day.name %></label>
       <% end %>
-      <input type="submit" id="savedelivery" value="Save">
+      <input id="savebutton" type="submit" value="Save">
     </form>
-    <form action="/delivery/cancel" method="post">
+    <form id="cancelform" action="/delivery/cancel" method="post">
       <input type="submit" id="canceldelivery" value="Cancel">
     </form>
   </article>

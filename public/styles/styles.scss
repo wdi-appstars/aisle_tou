@@ -276,14 +276,15 @@ header {
     margin: 0;
   }
   li {
-    border: 1px solid #666;
+    border-bottom: 1px solid $light-button-text;
     background-color: $pending-background;
     color: $pending-text-color;
     width: 100%;
     margin: 0 auto;
     padding: 0;
     .pendingitem {
-      width: 50%;
+      text-align: center;
+      width: 33%;
       margin: 0 auto;
       label {
         vertical-align: middle;
@@ -351,7 +352,7 @@ hr {
   }
   .basketactions {
     width: 100%;
-    margin-bottom: 3rem;
+    margin-bottom: 4rem;
     button {
       width: 94%;
       height: 3rem;
@@ -422,7 +423,95 @@ hr {
   }
 }
 
+#delivery {
+  margin-top: 6rem;
+}
 
+#leftsummary {
+  float: left;
+  margin-left: 2rem;
+  .summaryordertotal {
+    font-size: $order-info-text;
+    font-weight: bold;
+  }
+  .summaryitemcount{
+    font-size: $order-info-text;
+    font-weight: bold;
+  }
+}
+
+#rightsummary {
+  float: right;
+  margin-right: 2rem;
+  button {
+    background-color: $add-button-color;
+    color: $light-button-text;
+    border: 0;
+  }
+}
+
+.calendar {
+  width: 85%;
+  margin: 0 auto;
+  #datelabel {
+    font-size: $delivery-label-text;
+    display: inline-block;
+  }
+  .radiolabel {
+    font-size: $radio-label;
+    display: inline-block;
+    margin-right: 0.5rem;
+  }
+
+  input[type=date] {
+    height: 3rem;
+    margin-top: 2rem;
+  }
+  #savebutton, #canceldelivery {
+    width: 100%;
+    height: 3rem;
+    margin: 0.5rem auto;
+  }
+
+  #savebutton {
+    margin-top: 2rem;
+    background-color: $add-button-color;
+    border: 0;
+    color: $light-button-text;
+  }
+
+  #canceldelivery {
+    background-color: $remove-button-color;
+    color: $light-button-text;
+    border: 0;
+    margin-bottom: 5rem;
+
+  }
+
+  form {
+    margin: 0;
+    width: 100%;
+  }
+}
+
+.schedulesuccess {
+  margin-top: 6rem;
+}
+
+.deliverycancel {
+  margin-top: 6rem;
+}
+.buttonwrap {
+  width: 90%;
+  margin: 0 auto;
+  button {
+    width: 100%;
+    margin-top: 2rem;
+    background-color: $add-button-color;
+    border: 0;
+    color: $light-button-text;
+  }
+}
 
 
 footer {
