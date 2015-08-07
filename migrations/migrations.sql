@@ -11,32 +11,13 @@ CREATE TABLE deliveries (id SERIAL PRIMARY KEY, date date, time_of_day_id int, b
 
 CREATE TABLE baskets (id SERIAL PRIMARY KEY, total_price decimal, item_count int, user_id int);
 
-CREATE TABLE basket_items (id SERIAL PRIMARY KEY, basket_id int, food_id int, item_count int, scheduled boolean);
+CREATE TABLE basket_items (id SERIAL PRIMARY KEY, basket_id int, food_id int, item_count int, scheduled boolean, last_scheduled_date date);
 
 CREATE TABLE foods (id SERIAL PRIMARY KEY, name varchar(255), price decimal, category_id int);
 
 CREATE TABLE food_categories (id SERIAL PRIMARY KEY, name varchar(255));
 
 CREATE TABLE time_of_days (id SERIAL PRIMARY KEY, name varchar(255));
-
-
-#NEED TO ADD THIS TO GET PRICES FOR EACH FOOD ITEM!
-ALTER TABLE food ADD price decimal;
-
-#NEED TO FIX TYPO ON COLUMN NAME!!!
-ALTER TABLE users RENAME email_adress TO email_address;
-
-# NEED to pluralize food table to foods
-ALTER TABLE food RENAME TO foods;
-
-# NEED to fix typo
-ALTER TABLE foods RENAME catergory_id TO category_id;
-
-# NEED to fix typo
-ALTER TABLE users RENAME passowrd_hash TO password_hash;
-
-# NEED to add last_scheduled_date column in basket_items
-ALTER TABLE basket_items ADD COLUMN last_scheduled_date date;
 
 #insert the time of days
 INSERT INTO time_of_days (name) VALUES ('Morning');
