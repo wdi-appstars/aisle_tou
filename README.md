@@ -1,5 +1,7 @@
 # aisle_tou app
-Aisle Tou is a personalized internet grocery shopping app that delivers your groceries to your home or bussiness.
+Pair Programmers: Matt Herron and Sonju Walker
+
+Aisle Tou is a personalized internet food and beverage shopping app that delivers your groceries to your home or bussiness.
 
 #### App Technologies
 1. Sinatra
@@ -7,6 +9,9 @@ Aisle Tou is a personalized internet grocery shopping app that delivers your gro
 3. Javascript
 4. jQuery
 5. ActiveRecord
+6. Skelton
+7. SASS
+8. Postgress
 
 #### How to install and Run
 1. Got to GitHub and clone 'aisle_tou' repository
@@ -18,12 +23,13 @@ Aisle Tou is a personalized internet grocery shopping app that delivers your gro
 #### Page Views
 ![Images](/designs/IOS_Views/index_welcome_page.png)
 ![Images](/designs/IOS_Views/home_dashboard_page.png)
+![Images](/designs/IOS_Views/shop_page.png)
 ![Images](/designs/IOS_Views/Basket_Shop_Page.png)
 ![Images](/designs/IOS_Views/scheduled_delivery_page.png)
 ![Images](/designs/IOS_Views/delivery_success_page.png)
 
 
-#### PHoto
+#### Login photo
 ![Images](/public/images/groceries-bg.jpg)
 
 ### API Call
@@ -74,6 +80,6 @@ $('.removebutton').on('click', function() {
 });
 ```
 
-Challenges:  Continuity of the back-end and front-end technologies for a better user experience.
+Challenges: Web continuity of the back-end and front-end technologies for a better user experience.
 
-Version 2.0 will have nutrition information for specific food items. Plus health indicators for users who suffer from certain chronic health issues like hypertension or diabeties). Also, a smarter food restock algorithm. API for specific grocery stores.
+Version 2.0 will have nutrition information for specific food items. Plus health indicators for users who suffer from certain chronic health issues like hypertension or diabetes. Also, a smarter food restock algorithm and personalized APIs for local grocery stores. Edit button for pending deliveries.
