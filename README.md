@@ -1,7 +1,7 @@
 # aisle_tou app
 Pair Programmers: Matt Herron and Sonju Walker
 
-Aisle Tou is a personalized internet food and beverage shopping app that delivers your groceries to your home or bussiness.
+Aisle Tou is a personalized internet food and beverage shopping app that delivers your groceries to your home or business.
 
 #### App Technologies
 1. Sinatra
@@ -82,4 +82,4 @@ $('.removebutton').on('click', function() {
 
 Challenges: Web continuity of the back-end and front-end technologies for a better user experience.
 
-Version 2.0 will have nutrition information for specific food items. Plus health indicators for users who suffer from certain chronic health issues like hypertension or diabetes. Also, a smarter food restock algorithm and personalized APIs for local grocery stores. Edit button for pending deliveries.
+Version 2.0 will have nutrition information for specific food items. Edit button for pending deliveries and checkout. Plus health indicators for users who suffer from certain chronic health issues like hypertension and diabetes. Also, a smarter food restock algorithm and personalized APIs for local grocery stores. 
