@@ -11,14 +11,15 @@ Aisle Tou is a personalized internet food and beverage shopping app that deliver
 5. ActiveRecord
 6. Skelton
 7. SASS
-8. Postgress
+8. PostgreSQL
 
 #### How to install and Run
 1. Got to GitHub and clone 'aisle_tou' repository
-2. 'bundle' the GEMfile
-3. Run the migration.sql file in Postgress to generate the rquired databases
-4. Run 'bundle exec rackup'
-5. Browse to localhost:9292
+2. Open your preferred PostgreSQL database
+3. 'bundle' the GEMfile
+4. Run the migration.sql file in Postgress to generate the rquired databases
+5. Run 'bundle exec rackup'
+6. Browse to localhost:9292
 
 #### Page Views
 ![Images](/designs/IOS_Views/index_welcome_page.png)
@@ -82,4 +83,4 @@ $('.removebutton').on('click', function() {
 
 Challenges: Web continuity of the back-end and front-end technologies for a better user experience.
 
-Version 2.0 will have nutrition information for specific food items. Edit button for pending deliveries and checkout. Plus health indicators for users who suffer from certain chronic health issues like hypertension and diabetes. Also, a smarter food restock algorithm and personalized APIs for local grocery stores. 
+Version 2.0 will have nutrition information for specific food items. Edit button for pending deliveries and checkout. Plus health indicators for users who suffer from certain chronic health issues like hypertension and diabetes. Also, a smarter food restock algorithm and personalized APIs for local grocery stores.
