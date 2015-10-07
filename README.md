@@ -15,7 +15,7 @@ Aisle Tou is a personalized internet food and beverage shopping app that deliver
 
 #### How to install and Run
 1. Got to GitHub and clone 'aisle_tou' repository
-2. Open your preferred PostgreSQL database
+2. Connect to PostgreSQL database
 3. 'bundle' the GEMfile
 4. Run the migration.sql file in Postgress to generate the rquired databases
 5. Run 'bundle exec rackup'
